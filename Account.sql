@@ -108,5 +108,17 @@ Select * From Post
 
 Delete From Post where Id = 1 
 
+-------Viewwww---------
+Create view GetAllData
+as
+Select  People.Name, People.Surname, People.Age, [User].Login, [User].mail, [User].Password, Post.Content, Post.PostedTime, Comment.[Like] From People
+Join [User]
+on
 
-
+People.Id = [User].PeaopleId
+Join Post
+on
+[User].Id = Post.UserId
+Join Comment
+on
+Post.Id = Comment.PostId
